@@ -1,0 +1,231 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Vietnamese cuisine</title>
+
+<!--Embed CSS here-->
+<link rel="stylesheet" href="./CSS//styleindex.css"/>
+
+</head>
+
+
+<body>
+
+	<div> <!--div contains all the web page content-->
+
+		<div class="ct-header"> <!--div contains header content-->
+
+			<div>
+				<a href="index.html"><img src="images/Logo.PNG"></a>
+			</div>
+
+			<div class="ct-search">
+			
+				<form>
+					<input type="text" placeholder="Search in website">
+					<button type="submit">Search</button>
+				</form>
+
+			</div>
+
+		</div> <!-- finish div contains header content-->
+		
+	<!--------------------------------------------------------------------------------------------------------------->	
+
+		<div class="nav-bar"> <!--div contains menu content-->
+
+		  <ul>
+			<li><a href="#">Home</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Services</a></li>
+			<li><a href="#">Menu</a></li>
+			<li><a href="#">Events</a></li>
+			<li><a href="#">Contact</a></li>
+		  </ul>  
+
+		</div> <!-- finish div contains menu content-->
+
+	<!--------------------------------------------------------------------------------------------------------------->	
+	
+		<div class="ct-1"> <!--div contains banner and  Your registration information content-->
+
+			<div class="ct-1-left"> <!--div contains banner content-->
+				<img src="images/nhahang.png" alt="Vietnamese cuisine" />
+			</div> <!--finish div contains banner content-->
+
+			<div class="ct-1-right"> <!--div contains Your registration information content-->
+			 
+				 <h2>Your registration information</h2>
+
+				 <form action="#" method="post" >
+
+					<div class="ct-1-info">
+						<label for="fname">First Name</label>
+						<input type="text" id="fname" name="firstname" placeholder="Your name.."/>
+					</div>
+
+					<div class="ct-1-info">
+						<label for="lname">Last Name</label>
+						<input type="text" id="lname" name="lastname" placeholder="Your last name.." />
+					</div>
+
+					<div class="ct-1-info">
+						<label for="phone"> Your Phone</label>
+						<input type="text" id="phone" name="phone" placeholder="Your phone number.."/>
+					</div>
+
+					<div class="ct-1-btn">
+						<input type="submit" value="Send" />
+					</div>
+
+
+				  </form>
+
+			</div> <!-- finish div contains Your registration information content-->
+
+		</div> <!-- Finish div contains banner and  Your registration information content-->
+
+		<!--------------------------------------------------------------------------------------------------------------->
+
+		<div> <!--div contains LIST OF DISHES content-->
+
+			<h1>LIST OF DISHES</h1>
+
+			<div class="ct-2">
+				<div class="ct-2-part">
+					<div class="ct-2-object">
+						<img src="images/goitom.jpg" alt="Bamboo shoot, shrimp and meat salad" />
+						<div class="ct-2-ojinfo">
+							<h3>Bamboo shoot, shrimp and meat salad</h3>
+							<h3>Price : $10</h3>
+
+							<div class="ct-2-btn">
+								<button onclick="addToCart('Bamboo shoot, shrimp and meat salad', 10)">Add to Cart</button>
+							</div>
+						</div>
+						
+
+					</div>
+
+					<div class="ct-2-object">
+
+						<img src="images/Nemranchagio.jpg" alt="Fried spring rolls" />
+						<div class="ct-2-ojinfo">
+							<h3>Fried spring rolls</h3>
+							<h3>Price : $8</h3>
+
+							<div class="ct-2-btn">
+								<button onclick="addToCart('Fried spring rolls', 8)">Add to Cart</button>
+							</div>
+						</div>
+						
+
+					</div>
+				</div>
+				
+
+				<div class="ct-2-part">
+					<div class="ct-2-object">
+						<img src="images/Canhga.jpg" alt="Grilled chicken wings with salt and chili" />
+						<div class="ct-2-ojinfo">
+							<h3>Grilled chicken wings with salt and chili</h3>
+							<h3>Price : $14</h3>
+
+							<div class="ct-2-btn">
+								<button onclick="addToCart('Grilled chicken wings with salt and chili', 14)">Add to Cart</button>
+							</div>
+						</div>
+						
+
+					</div>
+
+					<div class="ct-2-object">
+
+						<img src="images/Lathaichuacay.jpg" alt="Thai hot and sour hot pot" />
+						<div class="ct-2-ojinfo">
+							<h3>Thai hot and sour hot pot</h3>
+							<h3>Price : $25</h3>
+
+							<div class="ct-2-btn">
+								<button onclick="addToCart('Thai hot and sour hot pot', 25)">Add to Cart</button>
+							</div>
+						</div>
+						
+
+					</div>
+				</div>
+				
+
+			</div>
+			
+			<div style="clear: both ;" > </div>
+
+		</div> <!--div contains LIST OF DISHES content-->
+
+
+	   <!------------------------------------------------------------------------------------------------------------------->
+
+		 <div id="cart"> <!--div contains cart content-->
+
+			<h2>Your Cart</h2>
+			
+			<div>
+
+				<ul id="cart-items">
+					<p>Your cart is empty.</p>
+				</ul>
+				
+				<h3 id="cart-total">Total: $0</h3>
+
+			</div>
+			
+		 </div> <!-- finish div contains cart content-->
+
+	   <!------------------------------------------------------------------------------------------------------------------->   
+
+		<div class="footer"> <!--div contains footer content-->
+
+					<p>Email : Vietnamesecuisine@gmail.com</p>
+					<p>Address: 100 Phan Van Tri, Binh Thanh District, HCMC</p>
+					<h5>&copy; Copyright 2025. Vietnamesecuisine.com</h5>
+
+		</div> <!-- finish div contains footer content-->
+		
+	</div> <!--finish div contains all the web page content-->
+	
+	<!------------------------------------------------------------------------------------------------------------------->
+	
+	<script>
+		//Write your Javascript code here
+		let cart = [];
+		let total = 0;
+
+		function addToCart(name, price) {
+			cart.push({ name: name, price: price });
+			total += price;
+			renderCart();
+		}
+
+		function renderCart() {
+			// Lấy phần hiển thị món ăn
+			const cartItems = document.getElementById("cart-items");
+			cartItems.innerHTML = "";
+
+			cart.forEach(item => {
+				let li = document.createElement("li");
+				li.innerText = `${item.name} - $${item.price}`;
+				cartItems.appendChild(li);
+			});
+
+			// Cập nhật tổng
+			document.getElementById("cart-total").innerHTML = `<strong>Total: $${total}</strong>`;
+		}
+	</script>
+	
+	
+</body>
+
+</html>
+
+
