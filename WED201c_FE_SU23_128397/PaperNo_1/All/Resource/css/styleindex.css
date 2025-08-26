@@ -134,6 +134,9 @@
         align-items: center;
         gap: 3%;
     }
+    .navbar-nav{
+        flex-direction: column;
+    }
     .logo{
         width: 50%;
         height: 20%;
@@ -187,4 +190,5 @@
     .ct3-img{
         padding: 3% 5%;
     }
+
 }    
